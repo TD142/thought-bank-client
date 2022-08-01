@@ -4,3 +4,29 @@
     text-align: center;
   }
 }
+
+.form {
+  &__input {
+    display: block;
+    border-radius: 5px;
+    border: 2px solid black;
+  }
+
+  &__container {
+    background: white;
+    width: fit-content;
+    padding: 2rem;
+    border-radius: 10px;
+    margin: 0 auto;
+  }
+  &__submit {
+    width: fit-content;
+    display: block;
+    margin: 0 auto;
+    margin-top: 1rem;
+    padding: 0.3rem;
+    border-radius: 10px;
+    border: 1px solid black;
+    cursor: pointer;
+  }
+}
