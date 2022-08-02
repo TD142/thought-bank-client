@@ -1,6 +1,6 @@
 .home-page {
   &__title {
-    color: white;
+    color: teal;
     text-align: center;
   }
 }
@@ -20,6 +20,7 @@
     margin: 0 auto;
   }
   &__submit {
+    background: teal;
     width: fit-content;
     display: block;
     margin: 0 auto;
