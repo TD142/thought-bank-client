@@ -2,6 +2,7 @@ import React from "react";
 import "./HomePage.scss";
 import { useState } from "react";
 import Register from "../../register/Register";
+import Login from "../../login/Login";
 
 const HomePage = () => {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -11,15 +12,7 @@ const HomePage = () => {
       <h1 className="home-page__title">Thought Bank</h1>
 
       <Register />
-      <form action="post">
-        <div className="form__container">
-          <label htmlFor="text">Email</label>
-          <input className="form__input" name="text" type="text" />
-          <label htmlFor="password">Password</label>
-          <input className="form__input" name="password" type="password" />
-          <button className="form__submit">Login</button>
-        </div>
-      </form>
+      <Login />
     </div>
   );
 };
