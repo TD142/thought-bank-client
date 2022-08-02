@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import axios from "axios";
 
 const Register = () => {
   const [formValues, setFormValues] = useState({
@@ -15,9 +16,25 @@ const Register = () => {
     }));
   };
 
+  const handleRegisterSubmit = async (event) => {
+    event.preventDefault();
+    await axios
+      .post("http://localhost:8080/register", formValues)
+      .then((result) => {
+        setRegister(true);
+      })
+      .catch((error) => {
+        error = new Error("Login unsucessful!");
+      });
+    setFormValues({
+      email: "",
+      password: "",
+    });
+  };
+
   return (
     <div>
-      <form action="post">
+      <form onSubmit={handleRegisterSubmit}>
         <div className="form__container">
           <label htmlFor="text">Email</label>
           <input
