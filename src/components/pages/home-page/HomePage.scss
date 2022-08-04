@@ -1,11 +1,19 @@
 .home-page {
   &__title {
-    color: teal;
+    color: white;
+    font-style: italic;
+    font-size: 4rem;
     text-align: center;
+    margin: 0;
+    padding: 2rem 0;
   }
 }
 
 .form {
+  &__title {
+    text-align: center;
+    margin-top: 0;
+  }
   &__input {
     display: block;
     border-radius: 5px;
@@ -13,11 +21,11 @@
   }
 
   &__container {
+    margin: 0 auto;
     background: white;
     width: fit-content;
     padding: 2rem;
     border-radius: 10px;
-    margin: 0 auto;
   }
   &__submit {
     background: teal;
@@ -29,5 +37,18 @@
     border-radius: 10px;
     border: 1px solid black;
     cursor: pointer;
+  }
+}
+
+.hero {
+  background: url(../../../assets/images/pexels-karolina-grabowska-4046753.jpg);
+  background-size: cover;
+  height: 100vh;
+
+  justify-content: space-between;
+
+  &__container {
+    width: fit-content;
+    margin: 0 auto;
   }
 }

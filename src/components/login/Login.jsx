@@ -35,6 +35,7 @@ const Login = () => {
   return (
     <form onSubmit={handleLoginSubmit}>
       <div className="form__container">
+        <h1 className="form__title">Login</h1>
         <label htmlFor="text">Email</label>
         <input
           onChange={handleLoginChange}

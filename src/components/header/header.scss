@@ -1,0 +1,15 @@
+.nav {
+  display: flex;
+
+  padding: 0rem 1.5rem;
+  border-bottom: 1px solid black;
+
+  & h4:nth-last-child(1) {
+    margin-left: 1.5rem;
+    font-size: 0.8rem;
+  }
+}
+
+a {
+  color: black;
+}

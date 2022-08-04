@@ -5,14 +5,15 @@ import Register from "../../register/Register";
 import Login from "../../login/Login";
 
 const HomePage = () => {
-  const [loggedIn, setLoggedIn] = useState(false);
-
   return (
     <div>
-      <h1 className="home-page__title">Thought Bank</h1>
+      <section className="hero">
+        <div className="hero__container">
+          <h1 className="home-page__title">Thought Bank</h1>
+        </div>
 
-      <Register />
-      <Login />
+        <Register />
+      </section>
     </div>
   );
 };

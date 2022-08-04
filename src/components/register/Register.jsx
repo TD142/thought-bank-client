@@ -4,6 +4,7 @@ import axios from "axios";
 
 const Register = () => {
   const [formValues, setFormValues] = useState({
+    username: "",
     email: "",
     password: "",
   });
@@ -27,6 +28,7 @@ const Register = () => {
         error = new Error("Login unsucessful!");
       });
     setFormValues({
+      username: "",
       email: "",
       password: "",
     });
@@ -36,6 +38,15 @@ const Register = () => {
     <div>
       <form onSubmit={handleRegisterSubmit}>
         <div className="form__container">
+          <h1 className="form__title">Register</h1>
+          <label htmlFor="text">User Name</label>
+          <input
+            onChange={handleRegisterChange}
+            value={formValues.username}
+            className="form__input"
+            name="username"
+            type="text"
+          />
           <label htmlFor="text">Email</label>
           <input
             onChange={handleRegisterChange}
