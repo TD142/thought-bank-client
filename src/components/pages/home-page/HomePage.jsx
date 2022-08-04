@@ -1,8 +1,7 @@
 import React from "react";
 import "./HomePage.scss";
-import { useState } from "react";
+import Post from "../../post/Post";
 import Register from "../../register/Register";
-import Login from "../../login/Login";
 
 const HomePage = () => {
   return (
@@ -14,6 +13,9 @@ const HomePage = () => {
 
         <Register />
       </section>
+      <article>
+        <Post />
+      </article>
     </div>
   );
 };
