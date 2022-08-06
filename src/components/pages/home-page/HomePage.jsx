@@ -1,9 +1,28 @@
-import React from "react";
 import "./HomePage.scss";
-import Post from "../../post/Post";
+import Posts from "../../posts/Posts";
 import Register from "../../register/Register";
+import { useState } from "react";
+import axios from "axios";
+import { API_URL } from "../../../utils/api";
+import { useEffect } from "react";
 
 const HomePage = () => {
+  const [posts, setPosts] = useState(null);
+
+  const populatePosts = async () => {
+    const { data } = await axios.get(`${API_URL}/posts`);
+
+    setPosts(data);
+  };
+
+  useEffect(() => {
+    populatePosts();
+  }, []);
+
+  if (!posts) {
+    return <p>Loading...</p>;
+  }
+
   return (
     <div>
       <section className="hero">
@@ -14,7 +33,7 @@ const HomePage = () => {
         <Register />
       </section>
       <article>
-        <Post />
+        <Posts posts={posts} />
       </article>
     </div>
   );

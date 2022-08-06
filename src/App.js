@@ -7,6 +7,8 @@ import LoginPage from "./components/pages/home-page/login-page/LoginPage";
 import { useState } from "react";
 import NewPost from "./components/pages/home-page/new-blog/NewPost";
 
+import SinglePost from "./components/pages/home-page/new-blog/single-post/SinglePost";
+
 function App() {
   const [loggedIn, setLoggedIn] = useState(true);
 
@@ -17,6 +19,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/new-post" element={<NewPost />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/post/:postId" element={<SinglePost />} />
       </Routes>
     </div>
   );

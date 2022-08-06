@@ -1,19 +1,17 @@
-import React from "react";
+import { Link } from "react-router-dom";
 import "./Post.scss";
+import { useLocation } from "react-router-dom";
 
-const Post = () => {
+const Post = ({ post }) => {
   return (
     <div>
       <div className="post__container">
         <div className="post__inner-container">
           <img src="" alt="blog" />
-          <h3>Blog Title</h3>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus
-            nobis recusandae provident assumenda corrupti, numquam rem
-            reprehenderit quasi. Aliquam dicta sequi nulla ullam deserunt
-            incidunt ratione maiores harum? Nam, unde!
-          </p>
+          <Link to={`post/${post._id}`}>
+            <h3>{post.title}</h3>
+          </Link>
+          <p>{post.desc}</p>
         </div>
       </div>
     </div>
