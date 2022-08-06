@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import "./SinglePost.scss";
 import axios from "axios";
-import { API_URL } from "../../../../../utils/api";
+import { API_URL } from "../../utils/api";
 
 const SinglePost = () => {
   const [post, setPost] = useState(null);

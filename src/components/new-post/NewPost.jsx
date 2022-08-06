@@ -1,4 +1,4 @@
-import img from "../../../../assets/images/pexels-steve-johnson-1269968.jpg";
+import img from "../../assets/images/pexels-steve-johnson-1269968.jpg";
 import "./NewPost.scss";
 const NewPost = () => {
   return (

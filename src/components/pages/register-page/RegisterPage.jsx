@@ -1,6 +1,7 @@
-import Login from "../../../login/Login";
+import React from "react";
+import Register from "../../register/Register";
 
-const LoginPage = () => {
+const RegisterPage = () => {
   return (
     <div>
       <section className="hero">
@@ -8,10 +9,10 @@ const LoginPage = () => {
           <h1 className="home-page__title">Thought Bank</h1>
         </div>
 
-        <Login />
+        <Register />
       </section>
     </div>
   );
 };
 
-export default LoginPage;
+export default RegisterPage;

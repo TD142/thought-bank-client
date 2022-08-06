@@ -2,8 +2,7 @@ import React from "react";
 import { useState } from "react";
 import axios from "axios";
 
-const Login = () => {
-  console.log(localStorage);
+const Login = ({ setUser }) => {
   const [formValues, setFormValues] = useState({
     email: "",
     password: "",
@@ -22,8 +21,8 @@ const Login = () => {
     await axios
       .post("http://localhost:8080/login", formValues)
       .then((result) => {
-        setlogin(true);
         localStorage.setItem("user", result.data.user);
+        setUser(result.data.user);
       })
       .catch((error) => {
         error = new Error("Login unsucessful!");

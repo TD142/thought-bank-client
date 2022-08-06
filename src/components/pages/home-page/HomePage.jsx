@@ -29,8 +29,6 @@ const HomePage = () => {
         <div className="hero__container">
           <h1 className="home-page__title">Thought Bank</h1>
         </div>
-
-        <Register />
       </section>
       <article>
         <Posts posts={posts} />
