@@ -8,7 +8,7 @@ const Post = ({ post }) => {
       <div className="post__container">
         <div className="post__inner-container">
           <img src="" alt="blog" />
-          <Link to={`post/${post._id}`}>
+          <Link to={`/post/${post._id}`}>
             <h3>{post.title}</h3>
           </Link>
           <p>{post.desc}</p>

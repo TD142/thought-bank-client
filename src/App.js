@@ -8,6 +8,7 @@ import { useState, useEffect } from "react";
 import NewPost from "./components/new-post/NewPost";
 import SinglePost from "./components/single-post/SinglePost";
 import RegisterPage from "./components/pages/register-page/RegisterPage";
+import Settings from "./components/pages/settings-page/Settings";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(true);
@@ -46,6 +47,8 @@ function App() {
           path="/register"
           element={user ? <HomePage /> : <RegisterPage />}
         />
+
+        <Route path="/settings" element={user ? <Settings /> : <HomePage />} />
         <Route path="/post/:postId" element={<SinglePost />} />
       </Routes>
     </div>

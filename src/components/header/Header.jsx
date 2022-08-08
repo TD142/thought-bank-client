@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 
 const Header = ({ user, handleLogoutClick }) => {
   const userName = localStorage.getItem("user");
-  console.log(userName);
 
   return (
     <header>

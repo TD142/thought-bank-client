@@ -40,7 +40,9 @@ const Login = ({ updateUser }) => {
       .post("http://localhost:8080/login", formValues)
       .then((result) => {
         const { user } = result.data;
+        const { id } = result.data;
         localStorage.setItem("user", user);
+        localStorage.setItem("id", id);
 
         updateUser(user);
         navigate("/");
