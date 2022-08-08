@@ -1,13 +1,18 @@
 import React from "react";
 import { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router";
 
-const Login = ({ setUser }) => {
+const Login = ({ updateUser }) => {
+  const navigate = useNavigate();
+
   const [formValues, setFormValues] = useState({
     email: "",
     password: "",
   });
-  const [login, setlogin] = useState(false);
+
+  const [emailFilled, setEmailFilled] = useState(true);
+  const [passwordFilled, setPasswordFilled] = useState(true);
 
   const handleLoginChange = (event) => {
     setFormValues((prevState) => ({
@@ -18,19 +23,31 @@ const Login = ({ setUser }) => {
 
   const handleLoginSubmit = async (event) => {
     event.preventDefault();
+
+    if (!formValues.email) {
+      setEmailFilled(false);
+    } else {
+      setEmailFilled(true);
+    }
+
+    if (!formValues.password) {
+      setPasswordFilled(false);
+    } else {
+      setPasswordFilled(true);
+    }
+
     await axios
       .post("http://localhost:8080/login", formValues)
       .then((result) => {
-        localStorage.setItem("user", result.data.user);
-        setUser(result.data.user);
+        const { user } = result.data;
+        localStorage.setItem("user", user);
+
+        updateUser(user);
+        navigate("/");
       })
       .catch((error) => {
         error = new Error("Login unsucessful!");
       });
-    setFormValues({
-      email: "",
-      password: "",
-    });
   };
   return (
     <form onSubmit={handleLoginSubmit}>
@@ -44,6 +61,7 @@ const Login = ({ setUser }) => {
           name="email"
           type="text"
         />
+        {!emailFilled && <p className="form__validation">Missing Email</p>}
         <label htmlFor="password">Password</label>
         <input
           value={formValues.password}
@@ -52,6 +70,9 @@ const Login = ({ setUser }) => {
           name="password"
           type="password"
         />
+        {!passwordFilled && (
+          <p className="form__validation">Missing Password</p>
+        )}
         <button className="form__submit">Login</button>
       </div>
     </form>

@@ -13,10 +13,9 @@ function App() {
   const [loggedIn, setLoggedIn] = useState(true);
   const [user, setUser] = useState(null);
 
-  const navigate = useNavigate();
-
   useEffect(() => {
     const loggedInUser = localStorage.getItem("user");
+
     if (loggedInUser) {
       setUser(loggedInUser);
     }
@@ -26,10 +25,11 @@ function App() {
     event.preventDefault();
     setUser(null);
     localStorage.clear();
-    navigate("/");
   };
 
-  const handleLoginClick = (event) => {};
+  const updateUser = (userName) => {
+    setUser(userName);
+  };
 
   return (
     <div className="App">
@@ -40,7 +40,7 @@ function App() {
         <Route path="/new-post" element={user ? <NewPost /> : <HomePage />} />
         <Route
           path="/login"
-          element={user ? <HomePage /> : <LoginPage setUser={setUser} />}
+          element={user ? <HomePage /> : <LoginPage updateUser={updateUser} />}
         />
         <Route
           path="/register"
