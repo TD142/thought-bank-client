@@ -49,6 +49,9 @@ const Settings = () => {
         await axios.post(`${API_URL}/user/${userId}`, userUpdate);
       } catch (err) {}
     }
+    event.target.value = null;
+
+    event.target.image.value = null;
   };
 
   const handlePasswordSubmit = async (event) => {
@@ -62,32 +65,40 @@ const Settings = () => {
     try {
       await axios.put(`${API_URL}/user/${userId}`, userUpdate);
     } catch (err) {}
+    setPassword(null);
   };
 
   return (
-    <div>
+    <div className="settings">
       <div className="settings__container">
-        <div className="settings__inner-container">
-          <form onSubmit={handleImageSubmit}>
-            <label htmlFor="Image">Update Profile Picture</label>
-            <img src={file} />
+        <form className="settings__form" onSubmit={handleImageSubmit}>
+          <div className="settings__wrapper">
+            <label className="settings__label" htmlFor="Image">
+              Picture
+            </label>
             <input
+              className="settings__file-input"
               name="image"
               type="file"
               onChange={handleImageUpload}
-            ></input>
-            <button>Update</button>
-          </form>
-          <form onSubmit={handlePasswordSubmit}>
-            <label htmlFor="userName">Update Password</label>
+            />
+          </div>
+          <button className="settings__button">Update</button>
+        </form>
+        <form className="settings__form" onSubmit={handlePasswordSubmit}>
+          <div className="settings__wrapper">
+            <label className="settings__label" htmlFor="userName">
+              Password
+            </label>
             <input
+              className="settings__input"
               value={password}
               onChange={handlePasswordChange}
               type="password"
             />
-            <button>Update</button>
-          </form>
-        </div>
+          </div>
+          <button className="settings__button">Update</button>
+        </form>
       </div>
     </div>
   );

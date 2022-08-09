@@ -27,7 +27,15 @@ const HomePage = () => {
     <div>
       <section className="hero">
         <div className="hero__container">
-          <h1 className="home-page__title">Thought Bank</h1>
+          <h2>
+            Talk <span> A</span>rt
+          </h2>
+          <h2>
+            Think A <span> r</span>t
+          </h2>
+          <h2>
+            Dream Ar<span>t</span>
+          </h2>
         </div>
       </section>
       <article>
