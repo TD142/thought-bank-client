@@ -41,7 +41,7 @@ const Settings = () => {
       } catch (err) {}
 
       try {
-        await axios.put(`${API_URL}/user/${userId}`, userUpdate);
+        await axios.post(`${API_URL}/user/${userId}`, userUpdate);
       } catch (err) {}
     }
   };

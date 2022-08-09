@@ -38,7 +38,10 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
 
-        <Route path="/new-post" element={user ? <NewPost /> : <HomePage />} />
+        <Route
+          path="/new-post"
+          element={user ? <NewPost user={user} /> : <HomePage />}
+        />
         <Route
           path="/login"
           element={user ? <HomePage /> : <LoginPage updateUser={updateUser} />}
