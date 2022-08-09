@@ -5,6 +5,7 @@ import { API_URL } from "../../../utils/api";
 
 const Settings = () => {
   const [userDetails, setUserDetails] = useState(null);
+  const [password, setPassword] = useState(null);
   const [file, setFile] = useState(null);
 
   const userId = localStorage.getItem("id");
@@ -20,6 +21,10 @@ const Settings = () => {
 
   const handleImageUpload = (event) => {
     setFile(event.target.files[0]);
+  };
+
+  const handlePasswordChange = (event) => {
+    setPassword(event.target.value);
   };
 
   const handleImageSubmit = async (event) => {
@@ -46,8 +51,17 @@ const Settings = () => {
     }
   };
 
-  const handlePasswordChange = (event) => {
+  const handlePasswordSubmit = async (event) => {
     event.preventDefault();
+
+    const userUpdate = {
+      username: userDetails.userName,
+      userId: userDetails._id,
+      password: password,
+    };
+    try {
+      await axios.put(`${API_URL}/user/${userId}`, userUpdate);
+    } catch (err) {}
   };
 
   return (
@@ -64,9 +78,13 @@ const Settings = () => {
             ></input>
             <button>Update</button>
           </form>
-          <form onChange={handlePasswordChange}>
+          <form onSubmit={handlePasswordSubmit}>
             <label htmlFor="userName">Update Password</label>
-            <input type="text" value="" />
+            <input
+              value={password}
+              onChange={handlePasswordChange}
+              type="password"
+            />
             <button>Update</button>
           </form>
         </div>
