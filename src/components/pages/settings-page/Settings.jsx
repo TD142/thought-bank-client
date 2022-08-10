@@ -3,21 +3,11 @@ import "./Settings.scss";
 import axios from "axios";
 import { API_URL } from "../../../utils/api";
 
-const Settings = () => {
-  const [userDetails, setUserDetails] = useState(null);
+const Settings = ({ userDetails, populateUserDetails }) => {
   const [password, setPassword] = useState(null);
   const [file, setFile] = useState(null);
 
   const userId = localStorage.getItem("id");
-
-  const populateUserDetails = async () => {
-    const { data } = await axios.get(`${API_URL}/user/${userId}`);
-    setUserDetails(data);
-  };
-
-  useEffect(() => {
-    populateUserDetails();
-  }, []);
 
   const handleImageUpload = (event) => {
     setFile(event.target.files[0]);
@@ -46,12 +36,13 @@ const Settings = () => {
       } catch (err) {}
 
       try {
-        await axios.post(`${API_URL}/user/${userId}`, userUpdate);
+        await axios.put(`${API_URL}/user/${userId}`, userUpdate);
       } catch (err) {}
     }
-    event.target.value = null;
+    // event.target.value = null;
 
     event.target.image.value = null;
+    populateUserDetails();
   };
 
   const handlePasswordSubmit = async (event) => {

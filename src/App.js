@@ -9,10 +9,24 @@ import NewPost from "./components/new-post/NewPost";
 import SinglePost from "./components/single-post/SinglePost";
 import RegisterPage from "./components/pages/register-page/RegisterPage";
 import Settings from "./components/pages/settings-page/Settings";
+import axios from "axios";
+import { API_URL } from "./utils/api";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(true);
   const [user, setUser] = useState(null);
+  const [userDetails, setUserDetails] = useState({});
+
+  const userId = localStorage.getItem("id");
+
+  const populateUserDetails = async () => {
+    const { data } = await axios.get(`${API_URL}/user/${userId}`);
+    setUserDetails(data);
+  };
+
+  useEffect(() => {
+    populateUserDetails();
+  }, []);
 
   useEffect(() => {
     const loggedInUser = localStorage.getItem("user");
@@ -34,7 +48,11 @@ function App() {
 
   return (
     <div className="App">
-      <Header handleLogoutClick={handleLogoutClick} user={user} />
+      <Header
+        handleLogoutClick={handleLogoutClick}
+        userDetails={userDetails}
+        user={user}
+      />
       <Routes>
         <Route path="/" element={<HomePage />} />
 
@@ -51,7 +69,19 @@ function App() {
           element={user ? <HomePage /> : <RegisterPage />}
         />
 
-        <Route path="/settings" element={user ? <Settings /> : <HomePage />} />
+        <Route
+          path="/settings"
+          element={
+            user ? (
+              <Settings
+                populateUserDetails={populateUserDetails}
+                userDetails={userDetails}
+              />
+            ) : (
+              <HomePage />
+            )
+          }
+        />
         <Route path="/post/:postId" element={<SinglePost />} />
       </Routes>
     </div>
