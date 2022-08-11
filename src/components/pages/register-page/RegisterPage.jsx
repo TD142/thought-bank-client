@@ -1,13 +1,14 @@
-import React from "react";
+import "./RegisterPage.scss";
+
 import Register from "../../register/Register";
 
 const RegisterPage = () => {
   return (
     <div>
-      <section className="hero">
-        <div className="hero__container"></div>
-
-        <Register />
+      <section className="register__hero">
+        <div className="register-hero__container">
+          <Register />
+        </div>
       </section>
     </div>
   );

@@ -1,9 +1,16 @@
 .settings {
+  background: url(../../../assets/images/pexels-karolina-grabowska-4046753.jpg);
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 35.2rem;
   &__container {
     border-radius: 5px;
     width: 60%;
+    height: fit-content;
     padding: 2rem 0;
-    margin: 2rem auto;
+    background-color: white;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
       rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
       rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;

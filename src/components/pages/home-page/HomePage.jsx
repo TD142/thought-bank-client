@@ -5,6 +5,7 @@ import { useState } from "react";
 import axios from "axios";
 import { API_URL } from "../../../utils/api";
 import { useEffect } from "react";
+import tateImg from "../../../assets/images/tate.png";
 
 const HomePage = () => {
   const [posts, setPosts] = useState(null);
@@ -38,9 +39,19 @@ const HomePage = () => {
           </h2>
         </div>
       </section>
-      <article>
+      <section className="section">
         <Posts posts={posts} />
-      </article>
+        <aside className="aside">
+          <h1 className="aside__title">Events on in London</h1>
+          <div className="aside__container">
+            <img className="aside__img" src={tateImg} alt="Tate hall" />
+            <div>
+              <h4>Tate Lates</h4>
+              <p>Every last friday of the month</p>
+            </div>
+          </div>
+        </aside>
+      </section>
     </div>
   );
 };

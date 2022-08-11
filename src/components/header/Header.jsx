@@ -1,9 +1,9 @@
 import React from "react";
 import "./header.scss";
 import { Link } from "react-router-dom";
+import defaultImg from "../../assets/images/watercolour-background.png";
 
 const Header = ({ user, userDetails, handleLogoutClick }) => {
-  console.log(userDetails);
   const userName = localStorage.getItem("user");
   const { profilePic } = userDetails;
 
@@ -35,7 +35,7 @@ const Header = ({ user, userDetails, handleLogoutClick }) => {
               </Link>
               <img
                 className="nav__img"
-                src={profilePic}
+                src={profilePic ? profilePic : defaultImg}
                 alt="User profile picture"
               />
               <h4 className="nav__link nav__link--user">{userName}</h4>

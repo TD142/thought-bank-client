@@ -1,0 +1,10 @@
+/* #root {
+  padding-bottom: 4rem;
+} */
+
+.App {
+  min-height: 100vh;
+  display: block;
+  position: relative;
+  padding-bottom: 62.3906px;
+}

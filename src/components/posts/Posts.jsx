@@ -4,9 +4,11 @@ import "./Posts.scss";
 const Posts = ({ posts }) => {
   return (
     <div className="posts">
-      {posts.map((post) => {
-        return <Post post={post} />;
-      })}
+      <div className="posts__container">
+        {posts.map((post) => {
+          return <Post post={post} />;
+        })}
+      </div>
     </div>
   );
 };

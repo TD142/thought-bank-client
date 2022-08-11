@@ -1,0 +1,25 @@
+.register {
+  &__hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url(../../../assets/images/pexels-karolina-grabowska-4046753.jpg);
+    background-size: cover;
+    height: 83vh;
+
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+      "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+      "Helvetica Neue", sans-serif;
+
+    &__container {
+      width: fit-content;
+
+      & > h2 {
+        text-align: center;
+        font-size: 8rem;
+
+        text-shadow: -5px 3px 5px #234d3c;
+      }
+    }
+  }
+}

@@ -1,13 +1,25 @@
 .new-post {
+  background: url("../../assets/images/pexels-karolina-grabowska-4046753.jpg");
+  background-size: cover;
   &__image {
     width: 30rem;
-    margin: 2rem auto;
+    margin: 0 auto;
     display: block;
     border-radius: 5px;
+    padding-top: 2rem;
   }
   &__form {
     width: fit-content;
     margin: 0 auto;
+  }
+
+  &__label {
+    font-size: 12px;
+  }
+
+  &__file-input {
+    display: block;
+    width: 11.5rem;
   }
 
   &__input {
@@ -15,9 +27,12 @@
     width: 30rem;
     height: 2rem;
     margin: 0 auto;
-    border: none;
+    border: 2px solid grey;
     border-radius: 5px;
 
+    &:nth-of-type(2) {
+      margin-top: 1rem;
+    }
     &::placeholder {
       color: rgb(189, 185, 185);
       font-weight: 400;
@@ -43,8 +58,15 @@
     cursor: pointer;
   }
   &__inner-container {
-    padding-top: 2rem;
+    padding: 2rem 0;
     display: flex;
     justify-content: flex-end;
   }
+}
+input::file-selector-button {
+  font-weight: bold;
+  color: white;
+  background: teal;
+  border: thin solid grey;
+  border-radius: 3px;
 }

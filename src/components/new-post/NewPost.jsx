@@ -22,7 +22,7 @@ const NewPost = ({ user }) => {
   };
 
   const handleImageUpload = (event) => {
-    setFormValues(event.target.files[0]);
+    setFile(event.target.files[0]);
   };
 
   const handlePostSubmit = async (event) => {
@@ -44,14 +44,17 @@ const NewPost = ({ user }) => {
   };
 
   return (
-    <div>
-      <img className="new-post__image" src={img} alt="art work" />
+    <div className="new-post">
       <form onSubmit={handlePostSubmit} className="new-post__form">
+        <img className="new-post__image" src={img} alt="art work" />
         <div className="new-post__container">
-          <label for="fileInput">Select an Image</label>
+          {/* <label className="new-post__label" for="file">
+            Upload Image
+          </label> */}
           <input
+            className="new-post__file-input"
             onChange={handleImageUpload}
-            name="file"
+            name="image"
             id="fileInput"
             type="file"
           />

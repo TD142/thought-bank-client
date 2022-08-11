@@ -25,9 +25,8 @@ const SinglePost = () => {
   return (
     <div>
       <div className="single-post__container">
+        <img className="single-post__image" src={post.image} alt="blog" />
         <div className="single-post__inner-container">
-          <img src="" alt="blog" />
-
           <h3>{post.title}</h3>
 
           <p>{post.desc}</p>

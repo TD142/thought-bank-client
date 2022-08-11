@@ -11,6 +11,7 @@ import RegisterPage from "./components/pages/register-page/RegisterPage";
 import Settings from "./components/pages/settings-page/Settings";
 import axios from "axios";
 import { API_URL } from "./utils/api";
+import Footer from "./components/footer/Footer";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(true);
@@ -84,6 +85,7 @@ function App() {
         />
         <Route path="/post/:postId" element={<SinglePost />} />
       </Routes>
+      <Footer />
     </div>
   );
 }
