@@ -1,3 +1,5 @@
+@use "./typography" as *;
+
 *,
 *::before,
 *::after {
@@ -9,11 +11,11 @@
 html,
 body {
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Avenir;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   box-sizing: border-box;
-  // background: #f7f7f7;
+  background: #f7f7f7;
 
   min-height: 100%;
   position: relative;

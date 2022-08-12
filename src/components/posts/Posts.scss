@@ -3,6 +3,8 @@
     display: flex;
     flex-wrap: wrap;
     margin-left: 2rem;
+
+    width: fit-content;
   }
 
   &__wrapper {
@@ -13,5 +15,11 @@
       width: fit-content;
       font-style: initial;
     }
+  }
+
+  &__title {
+    margin: 0 2rem 2rem 2rem;
+    text-align: center;
+    border-bottom: 1px solid black;
   }
 }
