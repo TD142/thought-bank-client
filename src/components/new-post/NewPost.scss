@@ -1,12 +1,18 @@
+@use "../../styles/partials/mixins" as *;
+
 .new-post {
   background: url("../../assets/images/pexels-karolina-grabowska-4046753.jpg");
   background-size: cover;
   &__image {
-    width: 30rem;
+    width: 15rem;
     margin: 0 auto;
     display: block;
     border-radius: 5px;
     padding-top: 2rem;
+
+    @include tablet {
+      width: 30rem;
+    }
   }
   &__form {
     width: fit-content;
@@ -20,11 +26,16 @@
   &__file-input {
     display: block;
     width: 11.5rem;
+    margin-top: 2rem;
+
+    @include tablet {
+      width: 11.5rem;
+    }
   }
 
   &__input {
     display: block;
-    width: 30rem;
+    width: 15rem;
     height: 2rem;
     margin: 0 auto;
     border: 2px solid grey;
@@ -46,21 +57,34 @@
       padding-top: 1rem;
       height: 20rem;
     }
+
+    @include tablet {
+      width: 30rem;
+    }
   }
 
   &__button {
     color: white;
     background-color: teal;
-    padding: 10px;
+    padding: 8px;
     border: none;
     border-radius: 10px;
-    font-size: 16px;
+    font-size: 12px;
     cursor: pointer;
+
+    @include tablet {
+      padding: 10px;
+      font-size: 16px;
+    }
   }
   &__inner-container {
     padding: 2rem 0;
+  }
+
+  &__bottom-container {
     display: flex;
     justify-content: flex-end;
+    padding-bottom: 2rem;
   }
 }
 input::file-selector-button {

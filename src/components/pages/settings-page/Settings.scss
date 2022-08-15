@@ -1,3 +1,5 @@
+@use "../../../styles/partials/mixins" as *;
+
 .settings {
   background: url(../../../assets/images/pexels-karolina-grabowska-4046753.jpg);
   background-size: cover;
@@ -5,6 +7,10 @@
   justify-content: center;
   align-items: center;
   height: 35.2rem;
+
+  @include tablet {
+    height: 45vw;
+  }
   &__container {
     border-radius: 5px;
     width: 60%;
@@ -32,15 +38,26 @@
   }
 
   &__form {
-    display: flex;
-    align-items: flex-end;
     width: 100%;
     padding: 0.8rem 2rem;
+
+    &:nth-of-type(1) {
+      border-bottom: 1px solid grey;
+
+      @include tablet {
+        border-bottom: none;
+      }
+    }
+
+    @include tablet {
+      display: flex;
+      align-items: flex-end;
+    }
   }
 
   &__button {
     height: fit-content;
-    margin-left: auto;
+    margin: 1.5rem 0 0 auto;
     color: white;
     background-color: teal;
     padding: 6px;

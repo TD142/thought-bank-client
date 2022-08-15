@@ -55,7 +55,7 @@ function App() {
         user={user}
       />
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<HomePage user={user} />} />
 
         <Route
           path="/new-post"

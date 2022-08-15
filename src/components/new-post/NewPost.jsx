@@ -79,7 +79,7 @@ const NewPost = ({ user }) => {
             value={formValues.desc}
           />
         </div>
-        <div className="new-post__inner-container">
+        <div className="new-post__bottom-container">
           <button className="new-post__button" type="submit">
             Publish
           </button>
