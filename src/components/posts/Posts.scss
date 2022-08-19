@@ -1,18 +1,26 @@
 @use "../../styles/partials/mixins" as *;
 
 .posts {
-  background: black;
+  align-self: flex-start;
+  @include tablet {
+    width: 80%;
+  }
   &__container {
-    border-top: 1px solid white;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    margin: 2rem;
+    border: 2px solid grey;
+    padding: 0 2rem;
+
+    @include tablet {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin: 2rem;
+    }
   }
 
   &__wrapper {
     padding: 1rem 0;
     margin: 2rem;
+    align-self: flex-start;
 
     & > h1 {
       width: fit-content;

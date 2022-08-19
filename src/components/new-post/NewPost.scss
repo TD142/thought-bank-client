@@ -1,7 +1,6 @@
 @use "../../styles/partials/mixins" as *;
 
 .new-post {
-  background: url("../../assets/images/pexels-karolina-grabowska-4046753.jpg");
   background-size: cover;
   &__image {
     width: 15rem;
@@ -38,7 +37,7 @@
     width: 15rem;
     height: 2rem;
     margin: 0 auto;
-    border: 2px solid grey;
+    border: 1px solid grey;
     border-radius: 5px;
 
     &:nth-of-type(2) {
@@ -64,7 +63,6 @@
   }
 
   &__button {
-    color: white;
     background-color: teal;
     padding: 8px;
     border: none;
@@ -89,7 +87,7 @@
 }
 input::file-selector-button {
   font-weight: bold;
-  color: white;
+
   background: teal;
   border: thin solid grey;
   border-radius: 3px;

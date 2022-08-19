@@ -1,8 +1,10 @@
+@use "../../styles/partials/mixins" as *;
+
 .footer {
   display: flex;
-
+  border-top: 1px solid grey;
   align-items: center;
-  background: black;
+  color: white;
   padding: 1.2rem 2rem;
   position: absolute;
   left: 0;
@@ -13,10 +15,24 @@
     display: inline-block;
     height: 1.5rem;
     margin-right: 1.5rem;
+    background: black;
+    border-radius: 50%;
   }
   & > a {
     display: block;
     color: white;
     margin-left: auto;
+    font-size: 12px;
+
+    @include tablet {
+      font-size: 14px;
+    }
+  }
+
+  & > p {
+    font-size: 12px;
+    @include tablet {
+      font-size: 14px;
+    }
   }
 }

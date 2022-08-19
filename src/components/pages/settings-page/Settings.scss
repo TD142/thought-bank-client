@@ -1,7 +1,6 @@
 @use "../../../styles/partials/mixins" as *;
 
 .settings {
-  background: url(../../../assets/images/pexels-karolina-grabowska-4046753.jpg);
   background-size: cover;
   display: flex;
   justify-content: center;
@@ -58,7 +57,7 @@
   &__button {
     height: fit-content;
     margin: 1.5rem 0 0 auto;
-    color: white;
+
     background-color: teal;
     padding: 6px;
     border: none;

@@ -50,9 +50,10 @@ const HomePage = ({ user }) => {
         </div>
       </section>
 
-      <h1 className="section__title">Events on in London</h1>
       <section className="section">
+        <Posts posts={posts} />
         <div className="section__wrapper">
+          <h1 className="section__title">Events on in London</h1>
           <div className="section__container">
             <a
               href="https://www.tate.org.uk/whats-on/tate-modern/tate-modern-lates"
@@ -84,46 +85,46 @@ const HomePage = ({ user }) => {
               </p>
             </div>
           </div>
-        </div>
-        <div>
-          <div className="section__container">
-            <a
-              href="https://www.barbican.org.uk/whats-on/2022/event/members-barbican-to-historic-charterhouse-photo-walk"
-              target="_blank"
-            >
-              <img
-                className="section__img"
-                src={charterImg}
-                alt="archecture artwork"
-              />
-            </a>
-            <div className="section__inner-container">
-              <h4>Charterhouse</h4>
-              <p>
-                Discovering old London archectures at the Barbican. Ends Sept
-                10.
-              </p>
+
+          <div>
+            <div className="section__container">
+              <a
+                href="https://www.barbican.org.uk/whats-on/2022/event/members-barbican-to-historic-charterhouse-photo-walk"
+                target="_blank"
+              >
+                <img
+                  className="section__img"
+                  src={charterImg}
+                  alt="archecture artwork"
+                />
+              </a>
+              <div className="section__inner-container">
+                <h4>Charterhouse</h4>
+                <p>
+                  Discovering old London archectures at the Barbican. Ends Sept
+                  10.
+                </p>
+              </div>
             </div>
-          </div>
-          <div className="section__container">
-            <a
-              href="https://whitecube.com/exhibitions/exhibition/louise_giovanelli_white_cube_bermondsey"
-              target="_blank"
-            >
-              <img
-                className="section__img"
-                src={whitecubeImg}
-                alt="archecture artwork"
-              />
-            </a>
-            <div className="section__inner-container">
-              <h4>As if, Almost</h4>
-              <p>Explores possibility and multiple view points.</p>
+            <div className="section__container">
+              <a
+                href="https://whitecube.com/exhibitions/exhibition/louise_giovanelli_white_cube_bermondsey"
+                target="_blank"
+              >
+                <img
+                  className="section__img"
+                  src={whitecubeImg}
+                  alt="archecture artwork"
+                />
+              </a>
+              <div className="section__inner-container">
+                <h4>As if, Almost</h4>
+                <p>Explores possibility and multiple view points.</p>
+              </div>
             </div>
           </div>
         </div>
       </section>
-      <Posts posts={posts} />
     </div>
   );
 };

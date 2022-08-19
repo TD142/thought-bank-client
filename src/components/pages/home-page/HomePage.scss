@@ -14,6 +14,7 @@
   &__title {
     text-align: center;
     margin-top: 0;
+    color: white;
   }
   &__input {
     display: block;
@@ -50,6 +51,7 @@
 .hero {
   background: url(../../../assets/images/pexels-karolina-grabowska-4046753.jpg);
   background-size: cover;
+  margin: 2rem;
   display: flex;
   align-items: center;
   height: 30rem;
@@ -72,15 +74,21 @@
 
     @include tablet {
       & > h2 {
-        font-size: 5rem;
+        font-size: 4rem;
 
         text-shadow: -5px 3px 5px #234d3c;
       }
     }
 
+    @include desktop {
+      & > h2 {
+        font-size: 5rem;
+      }
+    }
+
     & > p {
       font-weight: bold;
-      color: white;
+
       margin-bottom: 1rem;
     }
   }
@@ -93,6 +101,11 @@
     border-radius: 10px;
     font-size: 12px;
     cursor: pointer;
+
+    @include tablet {
+      padding: 10px;
+      font-size: 14px;
+    }
   }
 
   &__container {
@@ -101,25 +114,29 @@
 }
 
 .section {
-  border-top: 1px solid white;
-  border-bottom: 1px solid white;
-
   @include tablet {
     display: flex;
   }
+
+  border-top: 1px solid grey;
+
+  @include tablet {
+    // display: flex;
+  }
   justify-content: space-between;
   margin: 2rem 2rem 2rem 2rem;
-  color: white;
+
   padding: 2rem 0 2rem;
-  align-items: center;
+
   &__title {
+    color: white;
     margin: 0 0 1rem 0;
     text-align: center;
-    color: white;
+    line-height: 0.5;
     font-size: 1rem;
 
     @include tablet {
-      font-size: 1.8rem;
+      font-size: 1.3rem;
     }
   }
   height: fit-content;
@@ -131,7 +148,7 @@
     border-radius: 5px;
 
     @include desktop {
-      width: 12rem;
+      width: 9rem;
     }
   }
 
@@ -157,6 +174,7 @@
 
     & h4 {
       font-size: 0.9rem;
+      color: white;
 
       @include tablet {
         font-size: 1.2rem;
@@ -165,7 +183,7 @@
 
     & > p {
       font-size: 12px;
-
+      color: white;
       @include tablet {
         font-size: 14px;
       }
@@ -173,10 +191,11 @@
   }
 
   &__wrapper {
-    @include desktop {
-      // padding-left: 14rem;
-      width: 50%;
-      border-right: 1px solid white;
+    padding: 1rem 0;
+    border-top: 1px solid grey;
+    border-bottom: 1px solid grey;
+    @include tablet {
+      border-bottom: none;
     }
   }
 }
