@@ -1,29 +1,33 @@
 @use "../../styles/partials/mixins" as *;
 
 .post {
+  @include tablet {
+    &:nth-of-type(2n) {
+      position: relative;
+      bottom: 18px;
+    }
+  }
+
   &__container {
     border-radius: 5px;
-    width: 15rem;
+    width: 80%;
     height: 22rem;
     overflow: scroll;
     padding: 0 0 2rem 0;
-    background: #1c1f26;
+    // background: #1c1f26;
     margin: 2rem auto;
-    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
-      rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    // box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    //   rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 
     @include tablet {
       width: 18rem;
+      margin: 2rem 0;
     }
 
     & p {
       font-size: 12px;
       position: relative;
-      color: white;
-    }
-
-    @include tablet {
-      margin: 2rem 0;
+      color: black;
     }
   }
   &__inner-container {
@@ -31,7 +35,8 @@
     margin: 0 2rem;
 
     & > a {
-      color: white;
+      color: black;
+      font-size: 0.7rem;
       margin: 2rem 0;
       display: block;
     }

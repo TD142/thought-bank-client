@@ -1,7 +1,7 @@
 @use "../../styles/partials/mixins" as *;
 
 .new-post {
-  background-size: cover;
+  padding: 2rem 0;
   &__image {
     width: 15rem;
     margin: 0 auto;
@@ -16,6 +16,8 @@
   &__form {
     width: fit-content;
     margin: 0 auto;
+
+    padding: 0 2rem;
   }
 
   &__label {

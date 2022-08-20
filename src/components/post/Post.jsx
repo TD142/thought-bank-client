@@ -4,7 +4,7 @@ import { useLocation } from "react-router-dom";
 
 const Post = ({ post }) => {
   return (
-    <div>
+    <div className="post">
       <div className="post__container">
         <img className="post__image" src={post.image} alt="blog" />
         <div className="post__inner-container">

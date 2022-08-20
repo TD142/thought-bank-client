@@ -3,6 +3,7 @@
 } */
 
 .App {
+  padding-top: 4rem;
   min-height: 100vh;
   display: block;
   position: relative;

@@ -52,7 +52,7 @@ const HomePage = ({ user }) => {
 
       <section className="section">
         <Posts posts={posts} />
-        <div className="section__wrapper">
+        {/* <div className="section__wrapper">
           <h1 className="section__title">Events on in London</h1>
           <div className="section__container">
             <a
@@ -123,7 +123,7 @@ const HomePage = ({ user }) => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </section>
     </div>
   );
