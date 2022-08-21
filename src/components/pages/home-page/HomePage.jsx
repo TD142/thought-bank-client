@@ -12,7 +12,6 @@ import whitecubeImg from "../../../assets/images/white-cube.png";
 import { Link } from "react-router-dom";
 
 const HomePage = ({ user }) => {
-  console.log(user);
   const [posts, setPosts] = useState(null);
 
   const populatePosts = async () => {

@@ -19,11 +19,12 @@
   &__input {
     display: block;
     border-radius: 5px;
-    border: 2px solid black;
+    width: 12rem;
+    height: 2rem;
+    border: 1px solid black;
   }
 
   &__container {
-    background: url(../../../assets/images/pexels-karolina-grabowska-4046753.jpg);
     background-size: cover;
     width: fit-content;
     padding: 2rem;

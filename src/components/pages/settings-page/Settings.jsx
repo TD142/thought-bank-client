@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import "./Settings.scss";
 import axios from "axios";
 import { API_URL } from "../../../utils/api";
+import waterImg from "../../../assets/images/watercolour-background.png";
 
 const Settings = ({ userDetails, populateUserDetails }) => {
   const [password, setPassword] = useState(null);
@@ -39,7 +40,6 @@ const Settings = ({ userDetails, populateUserDetails }) => {
         await axios.put(`${API_URL}/user/${userId}`, userUpdate);
       } catch (err) {}
     }
-    // event.target.value = null;
 
     event.target.image.value = null;
     populateUserDetails();
@@ -62,6 +62,7 @@ const Settings = ({ userDetails, populateUserDetails }) => {
   return (
     <div className="settings">
       <div className="settings__container">
+        <img className="settings__image" src={waterImg} alt="water colours" />
         <form className="settings__form" onSubmit={handleImageSubmit}>
           <div className="settings__wrapper">
             <label className="settings__label" htmlFor="Image">

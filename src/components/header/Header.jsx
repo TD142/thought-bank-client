@@ -8,24 +8,24 @@ const Header = ({ user, userDetails, handleLogoutClick }) => {
   const [isOpen, setIsOpen] = useState();
   const userName = localStorage.getItem("user");
   const { profilePic } = userDetails;
-  const ul = document.querySelector("ul");
 
   const handleDisplayNav = (event) => {
     event.preventDefault();
-
+    const ul = document.querySelector("ul");
     const link = document.querySelectorAll(".nav__link");
-    console.log(link);
-
     if (!isOpen) {
+      ul.classList.remove("nav__primary-ul--nodisplay");
+
+      link.forEach((item) => item.classList.remove("nav__link--fadeout"));
       ul.classList.add("nav__primary-ul--display");
-      link.forEach((item) => item.classList.add("nav__link--fadein"));
     } else {
-      ul.classList.remove("nav__primary-ul--display");
-      link.forEach((item) => item.classList.remove("nav__link--fadein"));
+      ul.classList.add("nav__primary-ul--nodisplay");
+      link.forEach((item) => item.classList.add("nav__link--fadeout"));
     }
   };
 
   const handleNavClose = (event) => {
+    const ul = document.querySelector("ul");
     ul.classList.remove("nav__primary-ul--display");
     setIsOpen(false);
   };

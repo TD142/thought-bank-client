@@ -4,10 +4,32 @@
   @keyframes fade-in {
     0% {
       opacity: 0%;
+      transform: translatey(-8px);
     }
 
     100% {
       opacity: 100%;
+      transform: translatey(0px);
+    }
+  }
+
+  @keyframes fade-out {
+    0% {
+      opacity: 100%;
+    }
+
+    30% {
+      opacity: 0%;
+      // display: hidden;
+    }
+  }
+
+  @keyframes change-colour {
+    0% {
+      background: white;
+    }
+    100% {
+      background: transparent;
     }
   }
 
@@ -17,8 +39,11 @@
   position: fixed;
   top: 0;
   width: 100%;
-  padding: 1.2rem 2rem;
+  padding: 0.45rem 2rem;
   box-shadow: 0 8px 6px -6px #3f3e3e7e;
+  @include tablet {
+    padding: 1.2rem 2rem;
+  }
   &__link {
     text-decoration: none;
     display: block;
@@ -34,7 +59,14 @@
     &--flex-end {
       margin-left: auto;
     }
-    border-bottom: 1px solid transparent;
+
+    &--fadein {
+      animation: slide-up 1s;
+    }
+
+    &--fadeout {
+      animation: fade-out 1.2s;
+    }
 
     @include tablet {
       &:hover {
@@ -51,6 +83,8 @@
     }
   }
   &__hamburger {
+    position: relative;
+    right: 0.9rem;
     @include tablet {
       display: none;
     }
@@ -67,20 +101,25 @@
 
   &__primary-ul {
     display: none;
+    position: absolute;
+    background: white;
+    top: 3.8rem;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+
+    z-index: 2;
     &--display {
       padding: 2rem 2rem;
       display: flex;
       flex-direction: column;
 
       // align-items: center;
-      position: absolute;
-      background: white;
-      top: 5.3rem;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
+    }
 
-      z-index: 2;
+    &--nodisplay {
+      opacity: 0;
+      transition: opacity 0.5s linear;
     }
 
     @include tablet {
@@ -113,6 +152,7 @@
 
     @include tablet {
       border: none;
+      border-bottom: 1px solid transparent;
       padding: 0;
     }
   }

@@ -4,19 +4,21 @@
   background-size: cover;
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 35.2rem;
 
   @include tablet {
     height: 45vw;
   }
   &__container {
+    width: 70%;
+    padding: 1rem;
+    border: 2px solid grey;
     background: white;
     border-radius: 5px;
     height: fit-content;
-    padding: 2rem 0;
-
-    border: 2px solid grey;
+    margin-top: 2rem;
+    @include tablet {
+      width: 30rem;
+    }
   }
 
   &__input {
@@ -61,5 +63,9 @@
     border-radius: 10px;
     font-size: 14px;
     cursor: pointer;
+  }
+
+  &__image {
+    width: 100%;
   }
 }

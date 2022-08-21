@@ -3,7 +3,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router";
 
-const Login = ({ updateUser }) => {
+const Login = ({ updateUser, populateUserDetails }) => {
   const navigate = useNavigate();
 
   const [formValues, setFormValues] = useState({
@@ -46,38 +46,40 @@ const Login = ({ updateUser }) => {
 
         updateUser(user);
         navigate("/");
+        populateUserDetails();
       })
       .catch((error) => {
         error = new Error("Login unsucessful!");
       });
   };
   return (
-    <form onSubmit={handleLoginSubmit}>
-      <div className="form__container">
-        <h1 className="form__title">Login</h1>
-        <label htmlFor="text">Email</label>
-        <input
-          onChange={handleLoginChange}
-          value={formValues.email}
-          className="form__input"
-          name="email"
-          type="text"
-        />
-        {!emailFilled && <p className="form__validation">Missing Email</p>}
-        <label htmlFor="password">Password</label>
-        <input
-          value={formValues.password}
-          onChange={handleLoginChange}
-          className="form__input"
-          name="password"
-          type="password"
-        />
-        {!passwordFilled && (
-          <p className="form__validation">Missing Password</p>
-        )}
-        <button className="form__submit">Login</button>
-      </div>
-    </form>
+    <div>
+      <form onSubmit={handleLoginSubmit}>
+        <div className="form__container">
+          <label htmlFor="text">Email</label>
+          <input
+            onChange={handleLoginChange}
+            value={formValues.email}
+            className="form__input"
+            name="email"
+            type="text"
+          />
+          {!emailFilled && <p className="form__validation">Missing Email</p>}
+          <label htmlFor="password">Password</label>
+          <input
+            value={formValues.password}
+            onChange={handleLoginChange}
+            className="form__input"
+            name="password"
+            type="password"
+          />
+          {!passwordFilled && (
+            <p className="form__validation">Missing Password</p>
+          )}
+          <button className="form__submit">Login</button>
+        </div>
+      </form>
+    </div>
   );
 };
 

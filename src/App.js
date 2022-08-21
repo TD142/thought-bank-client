@@ -18,9 +18,8 @@ function App() {
   const [user, setUser] = useState(null);
   const [userDetails, setUserDetails] = useState({});
 
-  const userId = localStorage.getItem("id");
-
   const populateUserDetails = async () => {
+    const userId = localStorage.getItem("id");
     const { data } = await axios.get(`${API_URL}/user/${userId}`);
     setUserDetails(data);
   };
@@ -63,7 +62,16 @@ function App() {
         />
         <Route
           path="/login"
-          element={user ? <HomePage /> : <LoginPage updateUser={updateUser} />}
+          element={
+            user ? (
+              <HomePage />
+            ) : (
+              <LoginPage
+                populateUserDetails={populateUserDetails}
+                updateUser={updateUser}
+              />
+            )
+          }
         />
         <Route
           path="/register"
