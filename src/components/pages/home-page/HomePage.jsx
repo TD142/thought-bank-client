@@ -1,15 +1,12 @@
 import "./HomePage.scss";
 import Posts from "../../posts/Posts";
-import Register from "../../register/Register";
 import { useState } from "react";
 import axios from "axios";
 import { API_URL } from "../../../utils/api";
 import { useEffect } from "react";
-import tateImg from "../../../assets/images/tate.png";
-import hearImg from "../../../assets/images/hear.png";
-import charterImg from "../../../assets/images/charterhouse.png";
-import whitecubeImg from "../../../assets/images/white-cube.png";
-import { Link } from "react-router-dom";
+import { Canvas } from "react-three-fiber";
+import { OrbitControls } from "@react-three/drei";
+import AboutAnimation from "../../about-animation/AboutAnimation";
 
 const HomePage = ({ user }) => {
   const [posts, setPosts] = useState(null);
@@ -33,8 +30,15 @@ const HomePage = ({ user }) => {
       <section className="hero">
         <div className="hero__container">
           <div className="hero__inner-container">
-            <img className="hero__image" src={hearImg} alt="hear" />
-            <p>All things considered remain irrospective</p>
+            <div className="about-animation">
+              <Canvas>
+                <OrbitControls enableZoom={false} />
+                <ambientLight intensity={0.5} />
+                <directionalLight position={[-2, 10, 2]} intensity={0.5} />
+                <AboutAnimation />
+              </Canvas>
+            </div>
+            <p>All things considered remain irrospective: 1990.</p>
           </div>
         </div>
       </section>

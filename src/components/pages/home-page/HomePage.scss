@@ -53,6 +53,7 @@
 
 .hero {
   // background: url(../../../assets/images/hear.png);
+  justify-content: center;
   background-size: cover;
   &__image {
     width: 80%;
@@ -186,7 +187,6 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-left: 0.7rem;
 
     & h4 {
       font-size: 0.9rem;
@@ -215,4 +215,9 @@
       border-bottom: none;
     }
   }
+}
+
+.about-animation {
+  width: 40rem;
+  height: 25rem;
 }
