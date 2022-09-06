@@ -13,8 +13,10 @@
 .form {
   &__title {
     text-align: center;
-    margin-top: 0;
+    margin-bottom: 0.5rem;
     color: black;
+    font-size: 1.3rem;
+    font-weight: 400;
   }
   &__input {
     display: block;
@@ -29,7 +31,6 @@
     width: fit-content;
     padding: 2rem;
     border-radius: 10px;
-    border: 3px solid black;
   }
   &__submit {
     background: teal;
@@ -54,7 +55,11 @@
   // background: url(../../../assets/images/hear.png);
   background-size: cover;
   &__image {
-    width: 50%;
+    width: 80%;
+    @include tablet {
+      width: 50%;
+    }
+
     margin: 0 auto;
     display: block;
   }
