@@ -11,14 +11,16 @@ const Header = ({ user, userDetails, handleLogoutClick }) => {
 
   const handleDisplayNav = (event) => {
     event.preventDefault();
+    const body = document.querySelector("body");
     const ul = document.querySelector("ul");
     const link = document.querySelectorAll(".nav__link");
     if (!isOpen) {
+      body.classList.add("body");
       ul.classList.remove("nav__primary-ul--nodisplay");
-
       link.forEach((item) => item.classList.remove("nav__link--fadeout"));
       ul.classList.add("nav__primary-ul--display");
     } else {
+      body.classList.remove("body");
       ul.classList.add("nav__primary-ul--nodisplay");
       link.forEach((item) => item.classList.add("nav__link--fadeout"));
     }
@@ -26,7 +28,9 @@ const Header = ({ user, userDetails, handleLogoutClick }) => {
 
   const handleNavClose = (event) => {
     const ul = document.querySelector("ul");
+    const body = document.querySelector("body");
     ul.classList.remove("nav__primary-ul--display");
+    body.classList.remove("body");
     setIsOpen(false);
   };
 
@@ -86,42 +90,18 @@ const Header = ({ user, userDetails, handleLogoutClick }) => {
             <div onClick={handleDisplayNav} className="nav__hamburger">
               <Hamburger size={20} toggled={isOpen} toggle={setIsOpen} />
             </div>
-            <Link className="nav__link nav__link--remove-margin" to="/">
-              <li className="nav__list">Home</li>
-            </Link>
-            {user && (
-              <Link className="nav__link" to="/new-post">
-                <li className="nav__list">New Post</li>
-              </Link>
-            )}
-            {!user ? (
-              <>
-                <Link className="nav__link nav__link--flex-end" to="/register">
-                  <li className="nav__list">Register</li>
-                </Link>
-                <Link className="nav__link " to="/login">
-                  <li className="nav__list">Login</li>
-                </Link>
-              </>
-            ) : (
-              <>
-                <Link className="nav__link" to="/settings">
-                  <li className="nav__list">Settings</li>
-                </Link>
+            <h1>Thought Bank</h1>
+
+            <>
+              <div className="nav__container">
                 <img
                   className="nav__img"
                   src={profilePic ? profilePic : defaultImg}
                   alt="User profile picture"
                 />
                 <li className="nav__link--user">{userName}</li>
-
-                <Link className="nav__link" to="/">
-                  <li className="nav__list" onClick={handleLogoutClick}>
-                    Logout
-                  </li>
-                </Link>
-              </>
-            )}
+              </div>
+            </>
           </ul>
         </div>
       </nav>

@@ -62,7 +62,6 @@ const Settings = ({ userDetails, populateUserDetails }) => {
   return (
     <div className="settings">
       <div className="settings__container">
-        <img className="settings__image" src={waterImg} alt="water colours" />
         <form className="settings__form" onSubmit={handleImageSubmit}>
           <div className="settings__wrapper">
             <label className="settings__label" htmlFor="Image">

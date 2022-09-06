@@ -40,10 +40,16 @@
   top: 0;
   width: 100%;
   padding: 0.45rem 2rem;
-  box-shadow: 0 8px 6px -6px #3f3e3e7e;
+  // box-shadow: 0 8px 6px -6px #3f3e3e7e;
   @include tablet {
     padding: 1.2rem 2rem;
   }
+
+  &__container {
+    display: flex;
+    align-items: center;
+  }
+
   &__link {
     text-decoration: none;
     display: block;
@@ -85,9 +91,6 @@
   &__hamburger {
     position: relative;
     right: 0.9rem;
-    @include tablet {
-      display: none;
-    }
   }
 
   &__img {
@@ -96,7 +99,7 @@
     align-self: center;
     width: 1.5rem;
     height: 1.5rem;
-    margin: 0 0 0 auto;
+    // margin: 0 0 0 auto;
   }
 
   &__primary-ul {
@@ -121,10 +124,6 @@
       opacity: 0;
       transition: opacity 0.5s linear;
     }
-
-    @include tablet {
-      display: none;
-    }
   }
   &__primary-list {
     display: contents;
@@ -133,27 +132,24 @@
 
   &__ul {
     display: flex;
+    justify-content: space-between;
     align-items: center;
   }
 
   &__list {
     list-style: none;
     display: none;
-    @include tablet {
-      display: block;
-      font-size: 0.8rem;
-    }
   }
 
   & a {
     color: black;
     border-bottom: 1px solid grey;
     padding: 1rem 0;
-
-    @include tablet {
-      border: none;
-      border-bottom: 1px solid transparent;
-      padding: 0;
-    }
   }
+}
+
+.body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
 }
