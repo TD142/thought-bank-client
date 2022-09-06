@@ -90,7 +90,7 @@ const Header = ({ user, userDetails, handleLogoutClick }) => {
             <div onClick={handleDisplayNav} className="nav__hamburger">
               <Hamburger size={20} toggled={isOpen} toggle={setIsOpen} />
             </div>
-            <h1>Thought Bank</h1>
+            <h1>THOUGHT BANK</h1>
 
             <>
               <div className="nav__container">

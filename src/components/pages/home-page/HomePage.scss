@@ -51,17 +51,21 @@
 }
 
 .hero {
-  background: url(../../../assets/images/white-cube.png);
+  // background: url(../../../assets/images/hear.png);
   background-size: cover;
-
-  background-color: rgba(250, 0, 0, 0.525);
+  &__image {
+    width: 50%;
+    margin: 0 auto;
+    display: block;
+  }
+  // background-color: rgba(250, 0, 0, 0.525);
   left: 20px;
   background-blend-mode: darken;
 
   margin: 2rem;
   display: flex;
   align-items: center;
-  height: 60vw;
+
   margin-bottom: 32px;
 
   @include tablet {
@@ -70,21 +74,22 @@
 
   &__inner-container {
     background: transparent;
-    padding: 1rem;
-    margin-left: 2rem;
-    @include tablet {
-      margin-left: 6rem;
-    }
+    // padding: 1rem;
+    // margin-left: 2rem;
+    // @include tablet {
+    //   margin-left: 6rem;
+    // }
 
     & > h2 {
       font-size: 2rem;
       margin-bottom: 0.5rem;
+      color: white;
     }
 
     @include tablet {
       & > h2 {
         font-size: 4rem;
-        text-shadow: -5px 3px 5px #234d3c;
+        text-shadow: -5px 3px 5px black;
       }
     }
 
@@ -95,9 +100,9 @@
     }
 
     & > p {
-      font-weight: bold;
-      color: white;
-      margin-bottom: 1rem;
+      font-weight: 300;
+      margin-top: 2rem;
+      text-align: center;
     }
   }
 

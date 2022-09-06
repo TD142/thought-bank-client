@@ -33,18 +33,8 @@ const HomePage = ({ user }) => {
       <section className="hero">
         <div className="hero__container">
           <div className="hero__inner-container">
-            <h2>Thought Bank</h2>
-            <p>A place to share and talk about art.</p>
-
-            {user ? (
-              <Link to="/new-post">
-                <button className="hero__button">New Post</button>
-              </Link>
-            ) : (
-              <Link to="/login">
-                <button className="hero__button">Login</button>
-              </Link>
-            )}
+            <img className="hero__image" src={hearImg} alt="hear" />
+            <p>All things considered remain irrospective</p>
           </div>
         </div>
       </section>

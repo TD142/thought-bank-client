@@ -32,11 +32,11 @@
   }
 
   &__title {
-    margin: 0 2rem 2rem 2rem;
-    text-align: center;
+    margin: 0 2rem 0.5rem 2rem;
 
+    font-weight: 300;
     @include tablet {
-      font-size: 1.8rem;
+      font-size: 1.5rem;
     }
   }
 }
