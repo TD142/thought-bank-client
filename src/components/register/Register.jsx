@@ -10,6 +10,10 @@ const Register = () => {
   });
   const [register, setRegister] = useState(false);
 
+  const [userFilled, setUserFilled] = useState(true);
+  const [emailFilled, setEmailFilled] = useState(true);
+  const [passwordFilled, setPasswordFilled] = useState(true);
+
   const handleRegisterChange = (event) => {
     setFormValues((prevState) => ({
       ...prevState,
@@ -19,19 +23,40 @@ const Register = () => {
 
   const handleRegisterSubmit = async (event) => {
     event.preventDefault();
-    await axios
-      .post("http://localhost:8080/register", formValues)
-      .then((result) => {
-        setRegister(true);
-      })
-      .catch((error) => {
-        error = new Error("Login unsucessful!");
+
+    if (!formValues.email) {
+      setEmailFilled(false);
+    } else {
+      setEmailFilled(true);
+    }
+
+    if (!formValues.password) {
+      setPasswordFilled(false);
+    } else {
+      setPasswordFilled(true);
+    }
+
+    if (!formValues.username) {
+      setUserFilled(false);
+    } else {
+      setUserFilled(true);
+    }
+
+    if (formValues.email && formValues.password && formValues.username) {
+      await axios
+        .post("http://localhost:8080/register", formValues)
+        .then((result) => {
+          setRegister(true);
+        })
+        .catch((error) => {
+          error = new Error("Login unsucessful!");
+        });
+      setFormValues({
+        username: "",
+        email: "",
+        password: "",
       });
-    setFormValues({
-      username: "",
-      email: "",
-      password: "",
-    });
+    }
   };
 
   return (
@@ -47,6 +72,7 @@ const Register = () => {
             name="username"
             type="text"
           />
+          {!userFilled && <p className="form__validation">Missing User Name</p>}
           <label htmlFor="text">Email</label>
           <input
             onChange={handleRegisterChange}
@@ -55,6 +81,7 @@ const Register = () => {
             name="email"
             type="text"
           />
+          {!emailFilled && <p className="form__validation">Missing Email</p>}
           <label htmlFor="password">Password</label>
           <input
             value={formValues.password}
@@ -63,6 +90,7 @@ const Register = () => {
             name="password"
             type="password"
           />
+          {!passwordFilled && <p className="form__validation">Missing Email</p>}
           <button className="form__submit">Register</button>
         </div>
       </form>
