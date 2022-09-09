@@ -2,12 +2,15 @@ import "./RegisterPage.scss";
 
 import Register from "../../register/Register";
 
-const RegisterPage = () => {
+const RegisterPage = ({ updateUser, populateUserDetails }) => {
   return (
     <div>
       <section className="register__hero">
         <div className="register-hero__container">
-          <Register />
+          <Register
+            populateUserDetails={populateUserDetails}
+            updateUser={updateUser}
+          />
         </div>
       </section>
     </div>

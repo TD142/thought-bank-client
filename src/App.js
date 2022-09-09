@@ -12,6 +12,7 @@ import Settings from "./components/pages/settings-page/Settings";
 import axios from "axios";
 import { API_URL } from "./utils/api";
 import Footer from "./components/footer/Footer";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(true);
@@ -48,6 +49,7 @@ function App() {
 
   return (
     <div className="App">
+      <Toaster />
       <Header
         handleLogoutClick={handleLogoutClick}
         userDetails={userDetails}
@@ -75,7 +77,16 @@ function App() {
         />
         <Route
           path="/register"
-          element={user ? <HomePage /> : <RegisterPage />}
+          element={
+            user ? (
+              <HomePage />
+            ) : (
+              <RegisterPage
+                populateUserDetails={populateUserDetails}
+                updateUser={updateUser}
+              />
+            )
+          }
         />
 
         <Route

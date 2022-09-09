@@ -2,6 +2,8 @@ import React from "react";
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router";
+import validator from "validator";
+import { toast } from "react-hot-toast";
 
 const Login = ({ updateUser, populateUserDetails }) => {
   const navigate = useNavigate();
@@ -10,9 +12,9 @@ const Login = ({ updateUser, populateUserDetails }) => {
     email: "",
     password: "",
   });
-
   const [emailFilled, setEmailFilled] = useState(true);
   const [passwordFilled, setPasswordFilled] = useState(true);
+  const [formValid, setFormValid] = useState(false);
 
   const handleLoginChange = (event) => {
     setFormValues((prevState) => ({
@@ -34,6 +36,10 @@ const Login = ({ updateUser, populateUserDetails }) => {
       setPasswordFilled(false);
     } else {
       setPasswordFilled(true);
+    }
+
+    if (!setEmailFilled && !setPasswordFilled) {
+      return;
     }
 
     await axios
