@@ -56,63 +56,50 @@ const Register = ({ updateUser, populateUserDetails }) => {
       setUserFilled(true);
     }
 
-    const promisedSetPasswordValid = (newState) => {
-      return new Promise((resolve) => {
-        resolve(setPasswordValid(() => newState));
-      });
-    };
-
-    const promisedSetEmailValid = (newState) => {
-      return new Promise((resolve) => {
-        resolve(setEmailValid(() => newState));
-      });
-    };
-
     const passwordCheck = validator.isStrongPassword(formValues.password);
-    if (passwordCheck === false && formValues.password) {
-      await promisedSetPasswordValid(false);
+    if (!passwordCheck && formValues.password) {
+      setPasswordValid(false);
+    } else {
+      setPasswordValid(true);
     }
 
     const emailCheck = validator.isEmail(formValues.email);
-    if (emailCheck === false && formValues.email) {
-      await promisedSetEmailValid(false);
+    if (!emailCheck && formValues.email) {
+      setEmailValid(false);
+    } else {
+      setEmailValid(true);
     }
-    console.log(emailValid);
-    // if (
-    //   !formValid.email ||
-    //   !formValid.password ||
-    //   !emailFilled ||
-    //   !passwordFilled
-    // ) {
-    //   return;
-    // }
 
-    // await axios
-    //   .post("http://localhost:8080/register", formValues)
-    //   .then((result) => {
-    //     setRegister(true);
-    //   })
-    //   .catch((error) => {
-    //     setUserExists(error.response.data);
-    //   });
+    if (!passwordCheck || !emailCheck || !emailFilled || !passwordFilled) {
+      return;
+    }
 
-    // await axios
-    //   .post("http://localhost:8080/login", formValues)
-    //   .then((result) => {
-    //     const { user } = result.data;
-    //     const { id } = result.data;
-    //     localStorage.setItem("user", user);
-    //     localStorage.setItem("id", id);
+    await axios
+      .post("http://localhost:8080/register", formValues)
+      .then((result) => {
+        setRegister(true);
+      })
+      .catch((error) => {
+        setUserExists(error.response.data);
+      });
 
-    //     toast.success("Account Created!");
+    await axios
+      .post("http://localhost:8080/login", formValues)
+      .then((result) => {
+        const { user } = result.data;
+        const { id } = result.data;
+        localStorage.setItem("user", user);
+        localStorage.setItem("id", id);
 
-    //     setTimeout(() => {
-    //       navigate("/");
-    //     }, 1000);
-    //     updateUser(user);
+        toast.success("Account Created!");
 
-    //     populateUserDetails();
-    //   });
+        setTimeout(() => {
+          navigate("/");
+        }, 1000);
+        updateUser(user);
+
+        populateUserDetails();
+      });
     setFormValues({
       username: "",
       email: "",
@@ -162,17 +149,13 @@ const Register = ({ updateUser, populateUserDetails }) => {
           )}
           <button className="form__submit">Register</button>
         </div>
-        {!emailValid && (
+        {!passwordValid && (
           <p className="form__validation">
-            Password must contain one lowercase characters, one uppercase, one
+            Password must contain one lowercase character, one uppercase, one
             number, and one special character
           </p>
         )}
-        {!passwordValid && (
-          <p className="form__validation">
-            Account already exists with provided email.
-          </p>
-        )}
+        {!emailValid && <p className="form__validation">Invalid email</p>}
       </form>
     </div>
   );
