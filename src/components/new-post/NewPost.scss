@@ -4,6 +4,8 @@
   padding: 2rem 0;
   &__image {
     width: 15rem;
+    height: 20rem;
+    object-fit: cover;
     margin: 0 auto;
     display: block;
     border-radius: 5px;

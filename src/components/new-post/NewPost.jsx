@@ -3,6 +3,8 @@ import img from "../../assets/images/pexels-steve-johnson-1269968.jpg";
 import "./NewPost.scss";
 import { API_URL } from "../../utils/api";
 import axios from "axios";
+import { useNavigate } from "react-router";
+import { toast } from "react-hot-toast";
 
 const NewPost = ({ user }) => {
   const [formValues, setFormValues] = useState({
@@ -13,6 +15,8 @@ const NewPost = ({ user }) => {
   });
 
   const [file, setFile] = useState(null);
+
+  const navigate = useNavigate();
 
   const handleInputChange = (event) => {
     setFormValues((prevState) => ({
@@ -38,15 +42,27 @@ const NewPost = ({ user }) => {
         await axios.post(`${API_URL}/upload`, data);
       } catch (err) {}
     }
-    try {
+
+    if (formValues.title && formValues.desc) {
+      toast.success("post uploaded!");
+      setTimeout(() => {
+        navigate("/");
+      }, 1000);
+
       await axios.post(`${API_URL}/posts`, formValues);
-    } catch (err) {}
+    } else {
+      toast.error("Please make sure all fields are filled in");
+    }
   };
 
   return (
     <div className="new-post">
       <form onSubmit={handlePostSubmit} className="new-post__form">
-        <img className="new-post__image" src={img} alt="art work" />
+        <img
+          className="new-post__image"
+          src={file ? URL.createObjectURL(file) : img}
+          alt="art work"
+        />
         <div className="new-post__container">
           {/* <label className="new-post__label" for="file">
             Upload Image

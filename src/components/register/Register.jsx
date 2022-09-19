@@ -136,6 +136,7 @@ const Register = ({ updateUser, populateUserDetails }) => {
           {userExists.emailError && (
             <p className="form__validation">Email Already Registered</p>
           )}
+          {!emailValid && <p className="form__validation">Invalid email</p>}
           <label htmlFor="password">Password</label>
           <input
             value={formValues.password}
@@ -147,15 +148,14 @@ const Register = ({ updateUser, populateUserDetails }) => {
           {!passwordFilled && (
             <p className="form__validation">Missing Password</p>
           )}
+          {!passwordValid && (
+            <p className="form__validation form__validation--spacing">
+              Password must contain one lowercase character, one uppercase, one
+              number, and one special character
+            </p>
+          )}
           <button className="form__submit">Register</button>
         </div>
-        {!passwordValid && (
-          <p className="form__validation">
-            Password must contain one lowercase character, one uppercase, one
-            number, and one special character
-          </p>
-        )}
-        {!emailValid && <p className="form__validation">Invalid email</p>}
       </form>
     </div>
   );

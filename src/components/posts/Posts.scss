@@ -6,7 +6,6 @@
     // width: 80%;
   }
   &__container {
-    border-top: 1px solid grey;
     padding: 2rem 2rem 0;
     @include tablet {
       display: flex;
@@ -17,6 +16,8 @@
     }
 
     @include desktop {
+      max-width: 1600px;
+      margin: 0 auto;
     }
   }
 
@@ -33,6 +34,8 @@
 
   &__title {
     margin: 0 2rem 0.5rem 2rem;
+    border-bottom: 1px solid grey;
+    padding-bottom: 1rem;
 
     font-weight: 300;
     @include tablet {

@@ -58,9 +58,15 @@
     font-size: 0.8rem;
     font-weight: 400;
     text-align: center;
+    margin: 0.5rem 0;
 
     &--error {
       display: block;
+    }
+
+    &--spacing {
+      width: 10rem;
+      margin: 0.5rem auto;
     }
   }
 
