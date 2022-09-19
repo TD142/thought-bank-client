@@ -40,6 +40,7 @@ function App() {
   const handleLogoutClick = (event) => {
     event.preventDefault();
     setUser(null);
+    setUserDetails({});
     localStorage.clear();
   };
 
