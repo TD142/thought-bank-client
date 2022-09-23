@@ -91,6 +91,8 @@
   &__hamburger {
     position: relative;
     right: 0.9rem;
+    height: 50px;
+    width: 22px;
   }
 
   &__img {
@@ -138,7 +140,10 @@
     & > h1 {
       letter-spacing: 0.3rem;
       font-weight: 300;
-      font-size: 1.2rem;
+      font-size: 1rem;
+      @include tablet {
+        font-size: 1.2rem;
+      }
     }
   }
 

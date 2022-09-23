@@ -8,7 +8,7 @@ const Header = ({ user, userDetails, handleLogoutClick }) => {
   const [isOpen, setIsOpen] = useState();
   const userName = localStorage.getItem("user");
   const { profilePic } = userDetails;
-
+  console.log(user);
   const handleDisplayNav = (event) => {
     event.preventDefault();
     const body = document.querySelector("body");
@@ -90,7 +90,7 @@ const Header = ({ user, userDetails, handleLogoutClick }) => {
             <div onClick={handleDisplayNav} className="nav__hamburger">
               <Hamburger size={20} toggled={isOpen} toggle={setIsOpen} />
             </div>
-            <h1>THOUGHT BANK</h1>
+            <h1 className="nav__logo">THOUGHT BANK</h1>
 
             <>
               <div className="nav__container">
@@ -99,7 +99,7 @@ const Header = ({ user, userDetails, handleLogoutClick }) => {
                   src={profilePic ? profilePic : defaultImg}
                   alt="User profile picture"
                 />
-                <li className="nav__link--user">{userName}</li>
+                {userName && <li className="nav__link--user">{userName}</li>}
               </div>
             </>
           </ul>
