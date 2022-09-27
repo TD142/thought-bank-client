@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "./Post.scss";
 import { useLocation } from "react-router-dom";
-import defaultImg from "../../assets/images/watercolour-background.png";
+import defaultImg from "../../assets/images/pexels-steve-johnson-1269968.jpg";
 
 const Post = ({ post }) => {
   return (

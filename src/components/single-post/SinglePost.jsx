@@ -3,6 +3,7 @@ import { useParams } from "react-router";
 import "./SinglePost.scss";
 import axios from "axios";
 import { API_URL } from "../../utils/api";
+import defaultImg from "../../assets/images/pexels-steve-johnson-1269968.jpg";
 
 const SinglePost = () => {
   const [post, setPost] = useState(null);
@@ -25,7 +26,11 @@ const SinglePost = () => {
   return (
     <div>
       <div className="single-post__container">
-        <img className="single-post__image" src={post.image} alt="blog" />
+        <img
+          className="single-post__image"
+          src={post.image ? post.image : defaultImg}
+          alt="blog"
+        />
         <div className="single-post__inner-container">
           <h3>{post.title}</h3>
 
