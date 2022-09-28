@@ -20,7 +20,7 @@
   &__input {
     display: block;
     border-radius: 5px;
-    width: 15rem;
+    width: 14rem;
     height: 2.3rem;
     border: 1px solid black;
   }
@@ -39,7 +39,7 @@
     background: teal;
     font-size: 1rem;
     color: white;
-    width: 15rem;
+    width: 14rem;
     display: block;
     margin: 0 auto;
     margin-top: 1rem;
@@ -94,6 +94,8 @@
 .hero {
   justify-content: center;
   background-size: cover;
+  display: flex;
+  align-items: center;
   &__image {
     width: 80%;
     @include tablet {
@@ -103,10 +105,6 @@
     margin: 0 auto;
     display: block;
   }
-
-  margin: 2rem 0;
-  display: flex;
-  align-items: center;
 
   @include tablet {
     height: 40vw;

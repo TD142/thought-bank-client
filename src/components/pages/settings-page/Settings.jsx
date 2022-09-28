@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import "./Settings.scss";
 import axios from "axios";
 import { API_URL } from "../../../utils/api";
+import { toast } from "react-hot-toast";
 import waterImg from "../../../assets/images/watercolour-background.png";
 
 const Settings = ({ userDetails, populateUserDetails }) => {
@@ -39,14 +40,21 @@ const Settings = ({ userDetails, populateUserDetails }) => {
       try {
         await axios.put(`${API_URL}/user/${userId}`, userUpdate);
       } catch (err) {}
+      event.target.image.value = null;
+      populateUserDetails();
+      toast.success("Profile picture updated");
+    } else {
+      toast.error("No file uploaded");
     }
-
-    event.target.image.value = null;
-    populateUserDetails();
   };
 
   const handlePasswordSubmit = async (event) => {
     event.preventDefault();
+
+    if (!password) {
+      toast.error("Password cannot be empty");
+      return;
+    }
 
     const userUpdate = {
       username: userDetails.userName,
@@ -57,6 +65,7 @@ const Settings = ({ userDetails, populateUserDetails }) => {
       await axios.put(`${API_URL}/user/${userId}`, userUpdate);
     } catch (err) {}
     setPassword(null);
+    toast.success("Password changed");
   };
 
   return (
@@ -65,7 +74,7 @@ const Settings = ({ userDetails, populateUserDetails }) => {
         <form className="settings__form" onSubmit={handleImageSubmit}>
           <div className="settings__wrapper">
             <label className="settings__label" htmlFor="Image">
-              Picture
+              Profile Picture
             </label>
             <input
               className="settings__file-input"
