@@ -34,8 +34,8 @@
 
   &__title {
     margin: 0 2rem 0.5rem 2rem;
-    border-bottom: 1px solid grey;
-    padding-bottom: 1rem;
+    border-top: 1px solid grey;
+    padding-top: 1rem;
 
     font-weight: 300;
     @include tablet {

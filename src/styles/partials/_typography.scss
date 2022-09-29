@@ -1,18 +1,14 @@
 @font-face {
-  font-family: "Avenir";
-
-  src: url(../../assets/font/AvenirNextLTPro-Regular.otf);
-  font-weight: 400;
-}
-
-@font-face {
-  font-family: "Avenir";
-  src: url(../../assets/font/AvenirNextLTPro-Demi.otf);
-  font-weight: 600;
-}
-
-@font-face {
-  font-family: "Avenir";
-  src: url(../../assets/font/AvenirNextLTPro-Bold.otf);
-  font-weight: 700;
+  font-family: "Beausite Classic Regular";
+  src: url("//db.onlinewebfonts.com/t/81db551dd19e720ed0bc40dbde312130.eot");
+  src: url("//db.onlinewebfonts.com/t/81db551dd19e720ed0bc40dbde312130.eot?#iefix")
+      format("embedded-opentype"),
+    url("//db.onlinewebfonts.com/t/81db551dd19e720ed0bc40dbde312130.woff2")
+      format("woff2"),
+    url("//db.onlinewebfonts.com/t/81db551dd19e720ed0bc40dbde312130.woff")
+      format("woff"),
+    url("//db.onlinewebfonts.com/t/81db551dd19e720ed0bc40dbde312130.ttf")
+      format("truetype"),
+    url("//db.onlinewebfonts.com/t/81db551dd19e720ed0bc40dbde312130.svg#Beausite Classic Regular")
+      format("svg");
 }

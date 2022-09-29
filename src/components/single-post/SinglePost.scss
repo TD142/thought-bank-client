@@ -1,11 +1,19 @@
+@use "../../styles/partials/mixins" as *;
+
 .single-post {
   &__container {
     background: white;
     border-radius: 5px;
-    width: 50rem;
-
-    margin: 2rem auto;
+    margin: 2rem 2rem;
+    @include tablet {
+      width: 40rem;
+      margin: 0 auto;
+    }
+    @include desktop {
+      width: 50rem;
+    }
   }
+
   &__inner-container {
     margin-left: 2rem;
     & > h3 {

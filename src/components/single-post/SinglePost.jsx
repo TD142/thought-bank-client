@@ -24,18 +24,16 @@ const SinglePost = () => {
   }
 
   return (
-    <div>
-      <div className="single-post__container">
-        <img
-          className="single-post__image"
-          src={post.image ? post.image : defaultImg}
-          alt="blog"
-        />
-        <div className="single-post__inner-container">
-          <h3>{post.title}</h3>
+    <div className="single-post__container">
+      <img
+        className="single-post__image"
+        src={post.image ? post.image : defaultImg}
+        alt="blog"
+      />
+      <div className="single-post__inner-container">
+        <h3>{post.title}</h3>
 
-          <p>{post.desc}</p>
-        </div>
+        <p>{post.desc}</p>
       </div>
     </div>
   );
