@@ -162,14 +162,10 @@
 
 .section {
   @include tablet {
-    // display: flex;
+    margin: 0rem 2rem 2rem 2rem;
   }
 
-  @include tablet {
-    // display: flex;
-  }
-
-  margin: 0rem 2rem 2rem 2rem;
+  margin: 0rem 1rem 2rem 1rem;
 
   padding: 0 0 2rem;
 

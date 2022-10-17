@@ -1,12 +1,37 @@
+@use "../../styles/partials/mixins" as *;
+
 .container {
+  margin-bottom: 1rem;
   width: 100%;
   display: flex;
   justify-content: center;
-  height: 40rem;
+  height: 100vh;
+  @include tablet {
+    height: 35rem;
+  }
+
+  @include desktop {
+    height: 40rem;
+  }
   & > img {
     width: 2rem;
     height: 4rem;
     align-self: center;
+    display: none;
+    position: relative;
+    top: -5rem;
+    opacity: 0;
+    @include desktop {
+      display: block;
+      visibility: hidden;
+    }
+  }
+  @include desktop {
+    &:hover > img {
+      visibility: visible;
+      opacity: 1;
+      transition: opacity 1.5s;
+    }
   }
 
   &__previous {
@@ -29,7 +54,7 @@
     margin-right: auto;
     left: 0;
     right: 0;
-    text-align: center;
+    // text-align: center;
 
     &--hidden {
       opacity: 0;
@@ -43,15 +68,23 @@
     }
 
     & > p {
-      width: 40rem;
-      margin: 2rem auto;
+      margin-top: 5rem;
     }
 
     & > {
       img {
-        width: 50%;
-        aspect-ratio: 2;
+        width: 100%;
+        display: block;
+        margin: 0 auto;
+
         object-fit: contain;
+        @include tablet {
+          width: 40rem;
+          aspect-ratio: 2;
+        }
+        @include desktop {
+          width: 45rem;
+        }
       }
     }
   }

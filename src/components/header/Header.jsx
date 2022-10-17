@@ -3,12 +3,31 @@ import { Cross as Hamburger } from "hamburger-react";
 import "./header.scss";
 import { Link } from "react-router-dom";
 import defaultImg from "../../assets/images/watercolour-background.png";
+import { useEffect } from "react";
 
 const Header = ({ user, userDetails, handleLogoutClick }) => {
   const [isOpen, setIsOpen] = useState();
   const userName = localStorage.getItem("user");
   const { profilePic } = userDetails;
   console.log(user);
+
+  useEffect(() => {
+    const nav = document.querySelector(".nav");
+    const logo = document.querySelector(".nav__logo");
+    console.log(nav);
+    document.addEventListener("scroll", (event) => {
+      if (window.scrollY > 50) {
+        logo.classList.remove("nav__logo--fade-in");
+        logo.classList.add("nav__logo--fade-out");
+        nav.classList.add("nav--thinner");
+      } else {
+        nav.classList.add("nav--thinner");
+        logo.classList.remove("nav__logo--fade-out");
+        logo.classList.add("nav__logo--fade-in");
+      }
+    });
+  });
+
   const handleDisplayNav = (event) => {
     event.preventDefault();
     const body = document.querySelector("body");
@@ -90,7 +109,7 @@ const Header = ({ user, userDetails, handleLogoutClick }) => {
             <div onClick={handleDisplayNav} className="nav__hamburger">
               <Hamburger size={20} toggled={isOpen} toggle={setIsOpen} />
             </div>
-            <h1 className="nav__logo">THOUGHT BANK</h1>
+            <h1 className="nav__logo ">THOUGHT BANK</h1>
 
             <>
               <div className="nav__container">

@@ -67,49 +67,51 @@ const Carousel = () => {
         alt="carousel previous"
         id="previous"
         onClick={() => {
-          clearInterval(intervalRef.current);
-          intervalRef.current = setInterval(() => {
-            previousItem();
-          }, 4000);
+          if (intervalRef.current) {
+            clearInterval(intervalRef.current);
+            intervalRef.current = setInterval(() => {
+              nextItem();
+            }, 4000);
+          }
           previousItem();
         }}
       />
       <div className="carousel">
         <div className="carousel__item">
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod a hic
-            eaque excepturi neque deleniti. Nam ducimus vero sint omnis illum
-            provident eius debitis iusto? Fugit accusamus dolore quibusdam
-            voluptates.
-          </p>
           <img
             src="https://static.dezeen.com/uploads/2020/03/chinese-brutalism-today-alberto-bologna-china-architecture-concrete_dezeen_1704_taizhou_hero-852x479.jpg"
             alt=""
           />
-        </div>
-        <div className="carousel__item carousel__item--hidden">
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod a hic
             eaque excepturi neque deleniti. Nam ducimus vero sint omnis illum
             provident eius debitis iusto? Fugit accusamus dolore quibusdam
             voluptates.
           </p>
+        </div>
+        <div className="carousel__item carousel__item--hidden">
           <img
             src="https://images.adsttc.com/media/images/5a58/f9c6/f197/cc1f/8600/0199/slideshow/14.jpg?1515780543"
             alt=""
           />
-        </div>
-        <div className="carousel__item carousel__item--hidden">
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod a hic
             eaque excepturi neque deleniti. Nam ducimus vero sint omnis illum
             provident eius debitis iusto? Fugit accusamus dolore quibusdam
             voluptates.
           </p>
+        </div>
+        <div className="carousel__item carousel__item--hidden">
           <img
             src="https://www.mydomaine.com/thmb/jo2cJ63MGggEC1y8iBh7jsfulWE=/2000x1500/filters:no_upscale():max_bytes(150000):strip_icc()/PhilipOpenshaw_GettyImages_brutalistbuilding-260626ceed144a5a8f1afd4914f3d394.jpg"
             alt=""
           />
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod a hic
+            eaque excepturi neque deleniti. Nam ducimus vero sint omnis illum
+            provident eius debitis iusto? Fugit accusamus dolore quibusdam
+            voluptates.
+          </p>
         </div>
       </div>
       <img
@@ -118,10 +120,12 @@ const Carousel = () => {
         alt="carousel next"
         id={"next"}
         onClick={() => {
-          clearInterval(intervalRef.current);
-          intervalRef.current = setInterval(() => {
-            nextItem();
-          }, 4000);
+          if (intervalRef.current) {
+            clearInterval(intervalRef.current);
+            intervalRef.current = setInterval(() => {
+              nextItem();
+            }, 4000);
+          }
           nextItem();
         }}
       />
