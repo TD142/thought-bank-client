@@ -13,6 +13,10 @@
   @include desktop {
     height: 40rem;
   }
+
+  @media (min-width: 1400px) {
+    height: 100vh;
+  }
   & > img {
     width: 2rem;
     height: 4rem;
@@ -69,6 +73,7 @@
 
     & > p {
       margin-top: 5rem;
+      max-width: 1200px;
     }
 
     & > {
@@ -84,6 +89,10 @@
         }
         @include desktop {
           width: 45rem;
+        }
+
+        @media (min-width: 1400px) {
+          width: 60rem;
         }
       }
     }

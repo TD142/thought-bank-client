@@ -33,14 +33,16 @@
   }
 
   &__title {
+    letter-spacing: 0.6rem;
+    color: gold;
     margin: 0 2rem 0.5rem 2rem;
     border-top: 1px solid grey;
     border-top-style: dotted;
     padding-top: 1rem;
-    text-align: center;
-    font-weight: 300;
+    font-style: italic;
+    font-weight: 600;
     @include tablet {
-      font-size: 1.5rem;
+      font-size: 1.8rem;
     }
   }
 }

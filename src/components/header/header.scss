@@ -35,11 +35,11 @@
 
   position: relative;
   z-index: 1;
-  background: white;
   position: fixed;
   top: 0;
   width: 100%;
   padding: 0.45rem 2rem;
+  background: white;
   // box-shadow: 0 8px 6px -6px #3f3e3e7e;
   @include tablet {
     padding: 1.2rem 2rem;
@@ -167,6 +167,7 @@
     align-items: center;
 
     & > h1 {
+      color: gold;
       white-space: nowrap;
       text-align: center;
       flex: 1 0 0;
