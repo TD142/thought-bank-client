@@ -6,4 +6,4 @@ Building this app was an exercise in API intergration as well as form validation
 
 ## How to run
 
-Fork the repo as well as the server repo https://github.com/TD142/thomas-daley-capstone-server - follow the instructions for starting the server and then install the dependencies for the client and run NPM start.
+Fork the repo as well as the server repo https://github.com/TD142/thought-bank-server - follow the instructions for starting the server and then install the dependencies for the client and run NPM start.
