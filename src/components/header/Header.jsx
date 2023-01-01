@@ -21,7 +21,7 @@ const Header = ({ user, userDetails, handleLogoutClick }) => {
         logo.classList.add("nav__logo--fade-out");
         nav.classList.add("nav--thinner");
       } else {
-        nav.classList.add("nav--thinner");
+        nav.classList.remove("nav--thinner");
         logo.classList.remove("nav__logo--fade-out");
         logo.classList.add("nav__logo--fade-in");
       }

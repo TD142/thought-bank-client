@@ -13,8 +13,10 @@ const Carousel = () => {
     index++;
     let currentIndex = ((index % items.length) + items.length) % items.length;
 
-    console.log(index);
-    console.log(currentIndex);
+    if (currentIndex === NaN) {
+      currentIndex = 1;
+    }
+
     if (currentIndex === 0) {
       items[items.length - 1].classList.remove("carousel__item--fade");
       items[items.length - 1].classList.add("carousel__item--hidden");
