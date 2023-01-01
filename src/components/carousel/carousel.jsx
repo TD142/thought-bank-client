@@ -5,11 +5,12 @@ import changeItem from "../../assets/images/pngkey.com-stylish-arrow-png-8304891
 
 const Carousel = () => {
   // carousel
-  const items = document.querySelectorAll(".carousel__item");
+
   const intervalRef = useRef();
   let index = 0;
 
   const nextItem = () => {
+    const items = document.querySelectorAll(".carousel__item");
     index++;
     let currentIndex = ((index % items.length) + items.length) % items.length;
 
@@ -35,6 +36,7 @@ const Carousel = () => {
   };
 
   const previousItem = () => {
+    const items = document.querySelectorAll(".carousel__item");
     index--;
     let currentIndex = ((index % items.length) + items.length) % items.length;
 
