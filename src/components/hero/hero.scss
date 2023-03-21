@@ -1,0 +1,111 @@
+@use "../../styles/partials/mixins" as *;
+
+.hero {
+  width: 100%;
+  margin: 2rem 0;
+  padding: 2rem;
+
+  & > img {
+    width: 100%;
+  }
+
+  & > h4 {
+    letter-spacing: 0.3rem;
+    padding-bottom: 1rem;
+    padding-top: 0.8rem;
+    font-weight: 600;
+    font-size: 1.2rem;
+  }
+  &__wrapper {
+    margin-top: 1rem;
+    border: 1px solid black;
+    border-radius: 3px;
+    padding: 1rem 0;
+    @include desktop {
+      width: 12rem;
+      height: fit-content;
+    }
+
+    & > h5 {
+      border-bottom: 1px solid black;
+      &:nth-last-of-type(1) {
+        border-bottom: none;
+      }
+    }
+  }
+}
+
+.wrapper {
+  @media (min-width: 900px) {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.container {
+  border: 1px solid grey;
+  width: 100%;
+  padding: 1rem;
+  border-radius: 3px;
+  @include tablet {
+    gap: 1rem;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  @media (min-width: 1000px) {
+    display: flex;
+  }
+
+  @media (min-width: 1400px) {
+  }
+
+  & > img {
+    width: 100%;
+    border: 1px solid grey;
+    display: block;
+    margin: 1rem auto;
+
+    @media (min-width: 1000px) {
+      width: 55%;
+    }
+    @include desktop {
+      width: 50rem;
+    }
+  }
+  @include desktop {
+    &:hover > img {
+      visibility: visible;
+      opacity: 1;
+      transition: opacity 1.5s;
+    }
+  }
+
+  &__wrapper {
+    width: fit-content;
+    margin: auto;
+    &__title {
+      text-align: center;
+      font-size: 3rem;
+      @include tablet {
+        width: 20rem;
+      }
+
+      @include desktop {
+        font-size: 4.5rem;
+      }
+    }
+
+    &__text {
+      text-align: center;
+      @include tablet {
+        width: 20rem;
+      }
+    }
+  }
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}

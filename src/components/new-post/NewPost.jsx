@@ -6,7 +6,7 @@ import axios from "axios";
 import { useNavigate } from "react-router";
 import { toast } from "react-hot-toast";
 
-const NewPost = ({ user }) => {
+const NewPost = () => {
   const [formValues, setFormValues] = useState({
     title: "",
     desc: "",

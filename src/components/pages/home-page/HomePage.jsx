@@ -4,7 +4,7 @@ import { useState } from "react";
 import axios from "axios";
 import { API_URL } from "../../../utils/api";
 import { useEffect } from "react";
-import Carousel from "../../carousel/carousel";
+import Hero from "../../hero/Hero";
 
 const HomePage = ({ user }) => {
   const [posts, setPosts] = useState(null);
@@ -26,7 +26,7 @@ const HomePage = ({ user }) => {
   return (
     <div>
       <section className="section">
-        <Carousel />
+        <Hero posts={posts} />
         <Posts posts={posts} />
       </section>
     </div>
